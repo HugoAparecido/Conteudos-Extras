@@ -6,24 +6,26 @@ const btn_pesquisar = document.querySelector("#btn_pesquisar");
 const btn_gestao = document.querySelector("#btn_gestao");
 const btn_sobre = document.querySelector("#btn_sobre");
 const principal = document.querySelector("#principal");
+const abrirPagina = (el, url) => {
+    const abas = [...document.querySelectorAll(".aba")];
+    abas.forEach(e => {
+        e.classList.remove("abaSelecionada");
+    });
+    el.classList.add("abaSelecionada");
+    window.open(url, "if_principal");
+}
 btn_home.addEventListener("click", (evt) => {
-    selecionarAba(evt.target);
-    window.open("./pages/home.html", "if_principal");
+    abrirPagina(evt.target, "./pages/home.html");
 });
 btn_novo.addEventListener("click", (evt) => {
-    window.open("./pages/novo.html", "if_principal");
+    abrirPagina(evt.target, "./pages/novo.html");
 });
 btn_pesquisar.addEventListener("click", (evt) => {
-    window.open("./pages/pesquisar.html", "if_principal");
+    abrirPagina(evt.target, "./pages/pesquisar.html");
 });
 btn_gestao.addEventListener("click", (evt) => {
-    window.open("./pages/gestao.html", "if_principal");
+    abrirPagina(evt.target, "./pages/gestao.html");
 });
 btn_sobre.addEventListener("click", (evt) => {
-    window.open("./pages/sobre.html", "if_principal");
+    abrirPagina(evt.target, "./pages/sobre.html");
 });
-const selecionarAba = (el) => {
-    const abas = [...document.querySelectorAll(".aba")];
-    console.log(abas);
-    el.classList.add("abaSelecionada");
-}
