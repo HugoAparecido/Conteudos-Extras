@@ -18,9 +18,17 @@ btn_gravar.addEventListener("click", (evt) => {
     const endpoint = "http://127.0.0.1:1880/addcontatos";
     fetch(endpoint, cabecalho).then(res => {
         if (res.status == 200) {
-            console.log("OK");
+            reset();
         } else {
             alert("Erro ao gravar novo contato");
         }
     });
 });
+btn_cancelar.addEventListener("click", (evt) => { reset(); })
+const reset = () => {
+    f_nome.value = "";
+    f_celular.value = "";
+    f_email.value = "";
+    f_dtnasc.value = "";
+    f_nome.focus();
+}
